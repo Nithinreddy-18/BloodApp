@@ -10,7 +10,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def google_oauth2
-    @user = User.from_omniauth_google(request.env["omniauth.auth"])
+    @user = User.from_omniauth_google_oauth2(request.env["omniauth.auth"])
     sign_in_and_redirect @user
   end
 end              

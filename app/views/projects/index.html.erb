@@ -23,7 +23,7 @@
   <td><%= u.blood_group %></td>
   <td><%= u.email %></td>
   <td><%= u.address %></td>
-  <td><%= link_to "Send", :controller => "users", :action => "send_order_mail" %>
+  <td><%= link_to "Send", send_order_mail_path(u) %>
 </td>
   </tr>
 <% end %>

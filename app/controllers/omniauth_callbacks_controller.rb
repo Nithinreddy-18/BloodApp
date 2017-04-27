@@ -2,7 +2,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def github
     @user = User.from_omniauth_github(request.env["omniauth.auth"])
     sign_in_and_redirect @user 
-
   end
 
   def change_mymail?

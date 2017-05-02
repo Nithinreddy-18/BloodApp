@@ -7,6 +7,9 @@ class User < ApplicationRecord
   validates :name, :phone, :address, :blood_group, presence: true
   after_create :welcome_email
 
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
+  
   def welcome_email
     UserMailer.welcome_email(self).deliver_now
   end

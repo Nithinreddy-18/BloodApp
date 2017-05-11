@@ -1,10 +1,11 @@
 class User < ApplicationRecord
+  #attr_accessor :name, :email, :phone, :address, :blood_group
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable    
   devise :omniauthable, :omniauth_providers => [:github, :google_oauth2, :twitter]
-  validates :name, :phone, :address, :blood_group, presence: true
+  validates :name, :email, :phone, :address, :blood_group, presence: true
   after_create :welcome_email
 
   geocoded_by :address

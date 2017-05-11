@@ -59,6 +59,9 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', require: false
+  gem 'mocha'
 end
 
 group :development do

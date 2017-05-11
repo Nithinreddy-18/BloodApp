@@ -5,8 +5,17 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'shoulda/matchers'
+require 'support/factory_girl'
+
+Dir[Rails.root.join("spec/support/**/*.rb")].sort.each {|f| require f}
+
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
+end
+RSpec.configure do |config|
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 
